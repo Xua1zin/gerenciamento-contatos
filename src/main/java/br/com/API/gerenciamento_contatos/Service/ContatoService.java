@@ -27,7 +27,7 @@ public class ContatoService {
 
             contatoRepository.save(contatoEntity);
 
-            return "Contato criado com sucesso";
+            return "Contato criado com sucesso.";
         } catch (Exception e) {
             throw new RuntimeException("Problema ao criar contato: " + e.getMessage());
         }
@@ -43,7 +43,7 @@ public class ContatoService {
             contatoEntity.setEmail(contatoDto.email());
 
             contatoRepository.save(contatoEntity);
-            return "Contato editado com sucesso";
+            return "Contato atualizado com sucesso.";
         } catch(ContatoNotFoundException e){
             throw e;
         } catch (Exception e){
@@ -58,7 +58,7 @@ public class ContatoService {
 
             contatoRepository.deleteById(contatoEntity.getId());
 
-            return "Contato deletado com sucesso";
+            return "Contato deletado com sucesso.";
         } catch (ContatoNotFoundException e){
             throw e;
         } catch (Exception e){
