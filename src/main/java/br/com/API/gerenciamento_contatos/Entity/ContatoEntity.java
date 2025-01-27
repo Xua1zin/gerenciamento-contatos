@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -14,10 +15,12 @@ public class ContatoEntity {
     private Long id;
 
     @NotBlank
+    @NotNull
     @Size(min = 2, max = 100, message = "O nome não pode ter menos de 2 caracteres e mais de 100")
     private String nome;
 
     @NotBlank
+    @NotNull
     private String celular;
 
     @Email(message = "E-mail inválido")
