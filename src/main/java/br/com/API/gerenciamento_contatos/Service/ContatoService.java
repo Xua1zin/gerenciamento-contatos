@@ -38,10 +38,15 @@ public class ContatoService {
             ContatoEntity contatoEntity = contatoRepository.findById(id)
                     .orElseThrow(ContatoNotFoundException::new);
 
-            contatoEntity.setNome(contatoDto.nome());
-            contatoEntity.setCelular(contatoDto.celular());
-            contatoEntity.setEmail(contatoDto.email());
-
+            if(contatoDto.nome() != null) {
+                contatoEntity.setNome(contatoDto.nome());
+            }
+            if (contatoDto.celular() != null) {
+                contatoEntity.setCelular(contatoDto.celular());
+            }
+            if(contatoDto.email() != null) {
+                contatoEntity.setEmail(contatoDto.email());
+            }
             contatoRepository.save(contatoEntity);
             return "Contato atualizado com sucesso.";
         } catch(ContatoNotFoundException e){
