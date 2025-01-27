@@ -20,7 +20,7 @@ public class ContatoEntity {
     @NotBlank
     private String celular;
 
-    @Email
+    @Email(message = "E-mail inválido")
     private String email;
 
     public ContatoEntity() {
